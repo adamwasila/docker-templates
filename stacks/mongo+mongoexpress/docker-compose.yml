@@ -1,0 +1,15 @@
+version: "2"
+services:
+  mongo:
+    image: mongo:3
+    ports:
+      - "27017"
+    volumes:
+        - ./data/db:/data/db
+  mongoexpress:
+    image: mongo-express
+    ports:
+        - "8081:8081"
+    environment:
+        - WEB_USER='user'
+        - WEB_PASS='pass'
