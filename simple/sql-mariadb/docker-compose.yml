@@ -1,0 +1,13 @@
+version: '2'
+services:
+  mariadb:
+    image: mariadb:10
+    #volumes:
+    #  - "$PWD/mariadb:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootsecuritybyobscurity
+      MYSQL_DATABASE: database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: securitybyobscurity
+    #ports:
+    #  - "3306:3306"
