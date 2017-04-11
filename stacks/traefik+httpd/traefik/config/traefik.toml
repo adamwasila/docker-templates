@@ -1,0 +1,36 @@
+################################################################
+# Global configuration
+################################################################
+
+#port = ":8000"
+graceTimeOut = 10
+logLevel = "DEBUG"
+
+defaultEntryPoints = ["http", "https"]
+
+traefikLogsFile = "/tmp/traefik.log"
+accessLogsFile = "/tmp/access.log"
+
+# Web configuration backend
+################################################################
+[web]
+address = "0.0.0.0:8001"
+
+[entryPoints]
+ [entryPoints.http]
+   address = ":80"
+
+ [entryPoints.https]
+   address = ":443"
+    [entryPoints.https.tls]
+      [[entryPoints.https.tls.certificates]]
+      CertFile = "/etc/traefik/traefik.crt"
+      KeyFile = "/etc/traefik/traefik.key"
+
+[file]
+filename = "/etc/traefik/rules.toml"
+watch = true
+
+#[consulCatalog]
+#endpoint = "consul:8500"
+#prefix = "traefik"

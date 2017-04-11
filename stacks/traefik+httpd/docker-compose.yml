@@ -1,0 +1,20 @@
+version: '2'
+services:
+  gateway:
+    image: traefik
+    ports:
+     - "8001:8001"
+     - "80:80"
+#    dns:
+#     - 10.132.152.254
+    volumes:
+     - "./traefik/config/:/etc/traefik/"
+     - "./traefik/logs/:/tmp/"
+#    network_mode: "host"
+    links:
+     - "httpd"
+
+  httpd:
+    image: httpd
+    volumes:
+      - "./httpd/content:/usr/local/apache2/htdocs/"
