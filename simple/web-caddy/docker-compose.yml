@@ -1,0 +1,9 @@
+version: '3'
+services:
+  revproxy:
+    image: abiosoft/caddy
+    volumes:
+      - "./Caddyfile:/etc/Caddyfile"
+      - "./content:/caddycontent"
+    ports:
+      - "443:9009"

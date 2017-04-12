@@ -1,0 +1,6 @@
+localhost:9009
+
+root /caddycontent
+
+tls self_signed
+
